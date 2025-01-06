@@ -12,47 +12,44 @@ import Hero from '../components/Hero.astro';
 				title="About"
 				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
 			>
-				<img
+				<!-- <img
 					width="1553"
 					height="873"
-					src="/assets/at-work.jpg"
+					src="/assets/portrait.jpg"
 					alt="Tom Eagle at work with a colleague"
-				/>
+				/> -->
 			</Hero>
 
 			<section>
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						I'm a web developer based in Derbyshire, UK. I have a passion for creating beautiful, functional websites that provide a great user experience. I have experience working with a range of technologies, including Shopify, Liquid, JavaScript, React, and HTML.
 					</p>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
+						I have a First Class degree in Mechanical Engineering from the University of Manchester. I have always been interested in technology and have been able to apply my analytical skills to web development.
 					</p>
 					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						When I'm not coding, I enjoy spending time with my family and taking part in outdoor activities such as hiking, cycling and cycling. I'm lucky enough to live in the beautiful Peak District, so I'm never short of places to explore.
 					</p>
 				</div>
 			</section>
 			<section>
 				<h2 class="section-title">Education</h2>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
+					<p>First Class degree Mechanical Engineering, Manchester</p>
 				</div>
 			</section>
 			<section>
 				<h2 class="section-title">Skills</h2>
 				<div class="content">
-					<p>officia unde omnis</p>
+					<ul>
+						<li>Shopify</li>
+						<li>Liquid</li>
+						<li>JavaScript</li>
+						<li>React</li>
+						<li>HTML</li>
+					</ul>
 				</div>
 			</section>
 		</main>
@@ -62,6 +59,9 @@ import Hero from '../components/Hero.astro';
 </BaseLayout>
 
 <style>
+	p {
+		margin-bottom: 1rem;
+	}
 	.about {
 		display: flex;
 		flex-direction: column;

@@ -10,6 +10,7 @@ tags:
   - Dev
   - Custom JavaScript
   - Bugfixing
+  - Trustpilot integration
 ---
 
 ## Custom section builds
