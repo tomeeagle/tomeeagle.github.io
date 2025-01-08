@@ -8,6 +8,7 @@ import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 import { render } from 'astro:content';
+import CallToAction from '../../components/CallToAction.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -39,7 +40,10 @@ const { Content } = await render(entry);
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
+							<div>
+								<p class="description">{entry.data.description}</p>
+								<CallToAction href={entry.data.url}>View the live site</CallToAction>
+							</div>
 						</div>
 					</Hero>
 				</div>
@@ -69,21 +73,25 @@ const { Content } = await render(entry);
 
 	.details {
 		display: flex;
+		flex-wrap: wrap;
 		flex-direction: column;
 		padding: 0.5rem;
 		gap: 1.5rem;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 	}
 
 	.tags {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: 0.5rem;
 	}
 
 	.description {
 		font-size: var(--text-lg);
 		max-width: 54ch;
+		margin-bottom: 1rem;
 	}
 
 	.content {
