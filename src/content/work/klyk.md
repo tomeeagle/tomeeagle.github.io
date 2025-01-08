@@ -2,7 +2,7 @@
 title: Klyk
 publishDate: 2024-03-12 00:00:00
 img: /assets/hello-klyk-1.jpg
-img_alt: Iridescent ripples of a bright blue and pink liquid
+img_alt: Screenshot of custom testimonial section from Klyk website
 url: https://helloklyk.com/
 description: |
   Freelance contract to assist in rolling out this reskin of a Shopify store for this tech-recycling company
@@ -18,7 +18,7 @@ tags:
 
 > Including carousels, infographics and more.
 
-Working on a freelance basis for a web development agency client, I took on the rebrand of the merchant's Shopify store. The clean and vibrant design was a pleasure to work on, and the finished site is a joy to use, with a visually appeling UI and great UX.
+As a freelance web developer, I collaborated with a client agency to rebrand Klyk's Shopify store. The project involved creating a clean and vibrant design that was both visually appealing and user-friendly. I focused on delivering a strong user experience (UX) throughout the design process, resulting in a site that is a pleasure to navigate.
 
 #### Project details
 
