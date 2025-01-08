@@ -6,115 +6,167 @@ import Hero from '../components/Hero.astro';
 ---
 
 <BaseLayout title="About | Tom Eagle" description="About Tom Eagle Lorem Ipsum">
-	<div class="stack gap-20">
-		<main class="wrapper about">
-			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
-			>
-				<!-- <img
-					width="1553"
-					height="873"
-					src="/assets/portrait.jpg"
-					alt="Tom Eagle at work with a colleague"
-				/> -->
-			</Hero>
+    <div class="stack gap-20">
+        <main class="wrapper about">
+            <Hero
+                title="About"
+                tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+            >
+                <div class="image-wrapper">
+                    <img
+                        width="1553"
+                        height="873"
+                        src="/assets/sharp-edge.jpg"
+                        alt="Tom Eagle stood on Sharp Edge in the Lake District"
+                    />
+                </div>
+				<figcaption>Winter ascent of Sharp Edge in the Lake District</figcaption>
+            </Hero>
 
-			<section>
-				<h2 class="section-title">Background</h2>
-				<div class="content">
-					<p>
-						I'm a web developer based in Derbyshire, UK. I have a passion for creating beautiful, functional websites that provide a great user experience. I have experience working with a range of technologies, including Shopify, Liquid, JavaScript, React, and HTML.
-					</p>
-					<p>
-						I have a First Class degree in Mechanical Engineering from the University of Manchester. I have always been interested in technology and have been able to apply my analytical skills to web development.
-					</p>
-					<p>
-						When I'm not coding, I enjoy spending time with my family and taking part in outdoor activities such as hiking, cycling and cycling. I'm lucky enough to live in the beautiful Peak District, so I'm never short of places to explore.
-					</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Education</h2>
-				<div class="content">
-					<p>First Class degree Mechanical Engineering, Manchester</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Skills</h2>
-				<div class="content">
-					<ul>
-						<li>Shopify</li>
-						<li>Liquid</li>
-						<li>JavaScript</li>
-						<li>React</li>
-						<li>HTML</li>
-					</ul>
-				</div>
-			</section>
-		</main>
+            <section>
+                <h2 class="section-title">Background</h2>
+                <div class="content">
+                    <p>
+                        I'm a web developer based in Derbyshire, UK. I have a
+                        passion for creating beautiful, functional websites that
+                        provide a great user experience. I have experience
+                        working with a range of technologies, including Shopify,
+                        Liquid, JavaScript, React, and HTML.
+                    </p>
+                    <p>
+                        I have a First Class degree in Mechanical Engineering
+                        from the University of Manchester. I have always been
+                        interested in technology and have been able to apply my
+                        analytical skills to web development.
+                    </p>
+                    <p>
+                        When I'm not coding, I enjoy spending time with my
+                        family and taking part in outdoor activities such as
+                        hiking, cycling and cycling. I'm lucky enough to live in
+                        the beautiful Peak District, so I'm never short of
+                        places to explore.
+                    </p>
+                    <div class="image-wrapper">
+                        <img
+                            loading="lazy"
+                            width="1553"
+                            height="873"
+                            src="/assets/
+				bamford.jpg"
+                            alt="A beautiful vista from Bamford Edge in the Peak District"
+                        />
+                    </div>
+					<figcaption>View over Ladybower reservoir in the Peak District</figcaption>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title">Education</h2>
+                <div class="content">
+                    <p>First Class degree Mechanical Engineering, Manchester</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="section-title">Skills</h2>
+                <div class="content">
+                    <ul>
+                        <li>Shopify</li>
+                        <li>Liquid</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>HTML</li>
+                    </ul>
+                    <div class="image-wrapper">
+                        <img
+                            loading="lazy"
+                            width="1553"
+                            height="873"
+                            src="/assets/
+					tom_curbar.jpg"
+                            alt="Tom Eagle stood on Sharp Edge in the Lake District"
+                        />
+                    </div>
+					<figcaption>Looking out over the Derwent valley from Curbar Edge in the Peak District</figcaption>
+                </div>
+            </section>
+        </main>
 
-		<ContactCTA />
-	</div>
+        <ContactCTA />
+    </div>
 </BaseLayout>
 
 <style>
-	p {
-		margin-bottom: 1rem;
-	}
-	.about {
-		display: flex;
-		flex-direction: column;
-		gap: 3.5rem;
-	}
+    p {
+        margin-bottom: 1rem;
+    }
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
 
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		color: var(--gray-200);
+	figcaption {	
+		margin-top: 0.5rem;
+		text-align: left;
+		font-size: 0.8rem;
 	}
 
-	.section-title {
-		grid-column-start: 1;
-		font-size: var(--text-xl);
-		color: var(--gray-0);
-	}
+    .image-wrapper {
+        margin-top: 1.5rem;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        position: relative;
+    }
+    img {
+        box-shadow: var(--shadow-md);
+        object-fit: cover;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
 
-	.content {
-		grid-column: 2 / 4;
-	}
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: var(--gray-200);
+    }
 
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
+    .section-title {
+        grid-column-start: 1;
+        font-size: var(--text-xl);
+        color: var(--gray-0);
+    }
 
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
+    .content {
+        grid-column: 2 / 4;
+    }
 
-	@media (min-width: 50em) {
-		.about {
-			display: grid;
-			grid-template-columns: 1fr 60% 1fr;
-		}
+    .content :global(a) {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0.25em;
+        transition: text-decoration-color var(--theme-transition);
+    }
 
-		.about > :global(:first-child) {
-			grid-column-start: 2;
-		}
+    .content :global(a:hover),
+    .content :global(a:focus) {
+        text-decoration-color: currentColor;
+    }
 
-		section {
-			display: contents;
-			font-size: var(--text-lg);
-		}
-	}
+    @media (min-width: 50em) {
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 60% 1fr;
+        }
+
+        .about > :global(:first-child) {
+            grid-column-start: 2;
+        }
+
+        section {
+            display: contents;
+            font-size: var(--text-lg);
+        }
+    }
 </style>
