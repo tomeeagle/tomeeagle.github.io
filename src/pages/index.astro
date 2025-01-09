@@ -36,19 +36,21 @@ const projects = (await getCollection('work'))
 				>
 					<div class="roles">
 						<Pill><Icon icon="code" size="1.33em" /> Frontend</Pill>
-						<Pill><Icon icon="code" size="1.33em" /> Shopify</Pill>
-						<Pill><Icon icon="code" size="1.33em" /> React</Pill>
+						<Pill><Icon icon="storefront" size="1.33em" /> Shopify</Pill>
+						<Pill><Icon icon="atom" size="1.33em" /> React</Pill>
 						<!-- <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill> -->
 						<!-- <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill> -->
 					</div>
 				</Hero>
 
-				<img
-					alt="Tom Eagle smiling in a red plaid shirt and tortoise shell glasses"
+				<div class="image-wrapper">
+					<img
+					alt="Professional portrait of Tom Eagle"
 					width="480"
 					height="620"
 					src="/assets/portrait.jpg"
 				/>
+				</div>
 			</header>
 
 			<Skills />
@@ -116,15 +118,18 @@ const projects = (await getCollection('work'))
 		align-items: center;
 		gap: 2rem;
 	}
-
 	.roles {
 		display: none;
 	}
 
+	.hero .image-wrapper {
+		aspect-ratio: 1;
+		width: 100%;
+		max-width: 20rem;
+	}
+
 	.hero img {
-		aspect-ratio: 5 / 4;
 		object-fit: cover;
-		object-position: top;
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-md);
 	}

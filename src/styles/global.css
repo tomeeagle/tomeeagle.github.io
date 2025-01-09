@@ -197,6 +197,29 @@ h5 {
 	padding-inline: 1.5rem;
 }
 
+
+.image-wrapper {
+	width: 100%;
+	margin-top: 1.5rem;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	border-radius: 1.5rem;
+	position: relative;
+}
+
+.image-wrapper img {
+	box-shadow: var(--shadow-md);
+	object-fit: cover;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+}
+
+.image-wrapper.image-wrapper--tilted img {
+	transform: rotateZ(3deg) scale(1.05);
+}
+
 .stack {
 	display: flex;
 	flex-direction: column;
