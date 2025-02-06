@@ -1,6 +1,6 @@
 ---
 title: Gingerlily
-publishDate: 2024-03-12 00:00:00
+publishDate: 2025-03-02 00:00:00
 img: /assets/gingerlily-1.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 url: https://gingerlily.co.uk/
