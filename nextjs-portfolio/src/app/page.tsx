@@ -3,7 +3,6 @@ import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import Pill from '@/components/Pill';
 import CallToAction from '@/components/CallToAction';
-import Grid from '@/components/Grid';
 import PortfolioPreview from '@/components/PortfolioPreview';
 import Skills from '@/components/Skills';
 import ContactCTA from '@/components/ContactCTA';
@@ -15,20 +14,20 @@ export default function HomePage() {
   return (
     <Layout>
       <Hero>
-        <div className="hero-text">
-          <h1 className="hero-title">
-            Hi, I&apos;m <span className="hero-name">Tom Eagle</span>
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+            Hi, I&apos;m <span className="text-gray-300">Tom Eagle</span>
           </h1>
-          <p className="hero-subtitle">
+          <p className="text-xl text-gray-400 mb-8">
             Web developer and Shopify specialist based in Bakewell, Derbyshire.
           </p>
-          <div className="hero-tags">
+          <div className="flex flex-wrap gap-2 mb-8 justify-center md:justify-start">
             <Pill>Frontend Development</Pill>
             <Pill>Shopify</Pill>
             <Pill>React</Pill>
             <Pill>TypeScript</Pill>
           </div>
-          <div className="hero-actions">
+          <div className="flex flex-col gap-4 items-center md:items-start md:flex-row">
             <CallToAction href="/work" className="hero-cta primary">
               View my work
             </CallToAction>
@@ -37,28 +36,28 @@ export default function HomePage() {
             </CallToAction>
           </div>
         </div>
-        <div className="hero-image">
+        <div className="flex justify-center md:justify-end">
           <Image
             src="/assets/portrait.jpg"
             alt="Tom Eagle"
             width={400}
             height={400}
-            className="hero-portrait"
+            className="rounded-2xl w-full max-w-md h-auto"
             priority
           />
         </div>
       </Hero>
 
-      <section className="featured-work">
-        <div className="wrapper">
-          <h2 className="section-title">Featured Work</h2>
-          <Grid className="portfolio-grid">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <h2 className="text-3xl font-bold text-gray-100 mb-4 text-center">Featured Work</h2>
+          <div className="grid gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <PortfolioPreview key={project.slug} project={project} />
             ))}
-          </Grid>
-          <div className="section-actions">
-            <CallToAction href="/work" className="section-cta">
+          </div>
+          <div className="text-center mt-12">
+            <CallToAction href="/work" className="bg-gray-800 text-gray-100 border border-gray-700 hover:bg-gray-700">
               View all projects
             </CallToAction>
           </div>

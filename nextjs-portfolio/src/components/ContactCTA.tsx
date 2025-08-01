@@ -5,17 +5,17 @@ import Icon from './Icon';
 
 export default function ContactCTA() {
   return (
-    <section className="contact-cta">
-      <div className="wrapper">
-        <div className="contact-cta-content">
-          <h2 className="contact-cta-title">Ready to work together?</h2>
-          <p className="contact-cta-description">
+    <section className="py-16 text-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div>
+          <h2 className="text-3xl font-bold text-gray-100 mb-4">Ready to work together?</h2>
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
             Let&apos;s discuss your project and bring your ideas to life.
           </p>
-          <div className="contact-cta-actions">
+          <div className="flex flex-col gap-4 items-center md:flex-row md:justify-center">
             <CallToAction 
               href="mailto:hello@tomeagle.co.uk" 
-              className="contact-cta-button primary"
+              className="bg-gray-100 text-gray-900 hover:bg-gray-200"
               external
             >
               <Icon icon="mailbox" size="1.25em" />
@@ -23,7 +23,7 @@ export default function ContactCTA() {
             </CallToAction>
             <CallToAction 
               href="/work" 
-              className="contact-cta-button secondary"
+              className="bg-transparent text-gray-300 border border-gray-700 hover:bg-gray-800 hover:text-gray-100"
             >
               View my work
             </CallToAction>

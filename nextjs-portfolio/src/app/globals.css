@@ -16,15 +16,19 @@
   --gray-999: #0a0a0a;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-}
+@layer base {
+  * {
+    @apply box-border p-0;
+  }
 
-html {
-  font-family: system-ui, sans-serif;
-  background: var(--gray-999);
-  background-size: 224px;
+  html {
+    @apply font-sans bg-gray-999;
+    background-size: 224px;
+  }
+
+  body {
+    @apply bg-gray-999 text-gray-100;
+  }
 }
 
 code {

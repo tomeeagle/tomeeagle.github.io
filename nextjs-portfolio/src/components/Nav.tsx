@@ -21,7 +21,7 @@ export default function Nav() {
     <nav className={`sticky top-0 z-50 border-b border-gray-800 bg-gray-999/80 backdrop-blur-sm transition-all ${
       isScrolled ? 'shadow-lg' : ''
     }`}>
-      <div className="wrapper">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between py-4">
           <Link href="/" className="text-xl font-bold text-gray-100 hover:text-white">
             Tom Eagle

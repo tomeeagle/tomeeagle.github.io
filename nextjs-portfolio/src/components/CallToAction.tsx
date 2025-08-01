@@ -11,7 +11,7 @@ interface CallToActionProps {
 }
 
 export default function CallToAction({ children, href, className = '', external = false }: CallToActionProps) {
-  const baseClasses = 'cta';
+  const baseClasses = 'inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-decoration-none transition-all';
   const combinedClasses = `${baseClasses} ${className}`.trim();
 
   if (external) {
