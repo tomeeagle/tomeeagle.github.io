@@ -10,19 +10,21 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  image?: string | undefined;
+  url?: string | undefined;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, url } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <MainHead title={title} description={description} />
+    <MainHead title={title} description={description} image={image} url={url} />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZHE6J1G38"
     ></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);

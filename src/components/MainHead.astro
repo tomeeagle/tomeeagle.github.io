@@ -4,27 +4,96 @@ import '../styles/global.css';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+	image?: string | undefined;
+	url?: string | undefined;
 }
 
 const {
-	title = 'Tom Eagle: Personal Site',
-	description = 'The personal site of Tom Eagle',
+	title = 'Tom Eagle: Web Developer & Shopify Specialist',
+	description = 'Web developer and Shopify specialist based in Bakewell, Derbyshire. Specializing in frontend development, React, and custom Shopify solutions.',
+	image = '/assets/portrait.jpg',
+	url = Astro.url.href,
 } = Astro.props;
+
+// Generate structured data for better SEO
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Tom Eagle",
+	"jobTitle": "Web Developer",
+	"description": "Web developer and Shopify specialist based in Bakewell, Derbyshire",
+	"url": "https://tomeeagle.github.io",
+	"sameAs": [
+		"https://github.com/tomeeagle",
+		"https://www.linkedin.com/in/tom-eagle/"
+	],
+	"knowsAbout": ["Web Development", "Shopify", "React", "Frontend Development", "JavaScript"],
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Bakewell",
+		"addressRegion": "Derbyshire",
+		"addressCountry": "GB"
+	}
+};
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="generator" content={Astro.generator} />
-<title>{title}</title>
 
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="web developer, shopify developer, frontend developer, react developer, bakewell, derbyshire" />
+<meta name="author" content="Tom Eagle" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Tom Eagle Portfolio" />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
+<meta name="distribution" content="global" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={url} />
+
+<!-- Favicon and Icons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Preconnect to external domains -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+
+<!-- Fonts -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
 	rel="stylesheet"
 />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<!-- Theme Script -->
 <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
 	const getThemePreference = () => {
