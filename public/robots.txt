@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (automatically generated)
-Sitemap: https://tomeeagle.github.io/sitemap-index.xml
+Sitemap: https://tomeeagle.github.io/sitemap.xml
 
 # Disallow admin or private areas (if any)
 # Disallow: /admin/
