@@ -62,7 +62,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					If you have any questions about this Privacy Policy, please contact me at:
 				</p>
 				<p>
-					Email: tomeagleweb@gmail.com<br>
+					Email: <span id="email"></span><br>
+					<script>
+						document.getElementById('email').innerHTML = '<a href="mailto:' + 'tomeagleweb' + '@' + 'gmail.com">tomeagleweb' + '@' + 'gmail.com</a>';
+					</script>
 					Website: tomeeagle.github.io
 				</p>
 
