@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+	title="Privacy Policy | Tom Eagle"
+	description="Privacy policy for Tom Eagle's portfolio website. Learn how we collect, use, and protect your information."
+>
+	<div class="stack gap-20">
+		<main class="wrapper">
+			<div class="content">
+				<h1>Privacy Policy</h1>
+				<p><em>Last updated: January 8, 2025</em></p>
+
+				<h2>Introduction</h2>
+				<p>
+					This Privacy Policy describes how Tom Eagle ("I", "me", or "my") collects, uses, and protects your information when you visit my portfolio website at tomeeagle.github.io (the "Service").
+				</p>
+
+				<h2>Information Collection</h2>
+				<p>
+					This website is primarily informational and does not collect personal information directly. However, the following data may be collected:
+				</p>
+				<ul>
+					<li><strong>Analytics Data:</strong> Google Analytics may collect anonymous usage data including pages visited, time spent on site, and referring websites.</li>
+					<li><strong>Technical Data:</strong> Browser type, operating system, IP address, and device information may be collected for security and analytics purposes.</li>
+					<li><strong>Cookies:</strong> Essential cookies may be used for site functionality and analytics.</li>
+				</ul>
+
+				<h2>How Information is Used</h2>
+				<p>The collected information is used to:</p>
+				<ul>
+					<li>Analyze website traffic and user behavior</li>
+					<li>Improve website performance and user experience</li>
+					<li>Monitor site security and prevent abuse</li>
+					<li>Understand which content is most valuable to visitors</li>
+				</ul>
+
+				<h2>Third-Party Services</h2>
+				<p>This website uses the following third-party services:</p>
+				<ul>
+					<li><strong>Google Analytics:</strong> For website analytics and performance monitoring</li>
+					<li><strong>Google Fonts:</strong> For typography display</li>
+				</ul>
+
+				<h2>Data Protection</h2>
+				<p>
+					I implement appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of your information. However, no method of transmission over the internet is 100% secure.
+				</p>
+
+				<h2>Your Rights</h2>
+				<p>You have the right to:</p>
+				<ul>
+					<li>Request information about what data is collected</li>
+					<li>Request deletion of your data</li>
+					<li>Opt out of analytics tracking</li>
+					<li>Contact me with privacy concerns</li>
+				</ul>
+
+				<h2>Contact Information</h2>
+				<p>
+					If you have any questions about this Privacy Policy, please contact me at:
+				</p>
+				<p>
+					Email: <span id="email"></span><br>
+					<script>
+						document.getElementById('email').innerHTML = '<a href="mailto:' + 'tomeagleweb' + '@' + 'gmail.com">tomeagleweb' + '@' + 'gmail.com</a>';
+					</script>
+					Website: tomeeagle.github.io
+				</p>
+
+				<h2>Changes to This Policy</h2>
+				<p>
+					I may update this Privacy Policy from time to time. I will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+				</p>
+			</div>
+		</main>
+	</div>
+</BaseLayout>
+
+<style>
+	.content {
+		max-width: 65ch;
+		margin-inline: auto;
+		line-height: 1.6;
+	}
+
+	.content h1 {
+		font-size: var(--text-3xl);
+		margin-bottom: 1rem;
+		color: var(--gray-0);
+	}
+
+	.content h2 {
+		font-size: var(--text-xl);
+		margin: 2rem 0 1rem 0;
+		color: var(--gray-0);
+	}
+
+	.content p {
+		margin-bottom: 1rem;
+		color: var(--gray-200);
+	}
+
+	.content ul {
+		margin-bottom: 1rem;
+		padding-left: 1.5rem;
+		color: var(--gray-200);
+	}
+
+	.content li {
+		margin-bottom: 0.5rem;
+	}
+
+	.content strong {
+		color: var(--gray-0);
+	}
+
+	.content em {
+		color: var(--gray-300);
+		font-style: italic;
+	}
+</style> 
