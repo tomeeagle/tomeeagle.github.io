@@ -34,7 +34,10 @@ const structuredData = {
 		"addressRegion": "Derbyshire",
 		"addressCountry": "GB"
 	}
-};
+} as const;
+
+// Safely serialize structured data
+const structuredDataJson = JSON.stringify(structuredData);
 ---
 
 <meta charset="UTF-8" />
@@ -91,7 +94,7 @@ const structuredData = {
 />
 
 <!-- Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={structuredDataJson} />
 
 <!-- Theme Script -->
 <script is:inline>
