@@ -1,15 +1,191 @@
 ---
-import CallToAction from './CallToAction.astro';
 import Icon from './Icon.astro';
 ---
 
 <aside>
 	<h2>Interested in working together?</h2>
-	<CallToAction href="mailto:tomeagleweb@gmail.com">
-		Send Me a Message
-		<Icon icon="paper-plane-tilt" size="1.2em" />
-	</CallToAction>
+	<form class="contact-form" action="https://formspree.io/f/xblkagpw" method="POST" id="contactForm">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required />
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required />
+		</div>
+		<div class="form-group">
+			<label for="message">Message</label>
+			<textarea id="message" name="message" rows="4" required></textarea>
+		</div>
+		<div class="form-group">
+			<div class="g-recaptcha" data-sitekey="6LetS5grAAAAANEwqa9_oqTRawlROQbd-NmxKUDX"></div>
+		</div>
+		<button type="submit" class="submit-btn" id="submitBtn">
+			<span class="btn-text">Send Message</span>
+			<span class="btn-loading" style="display: none;">
+				<Icon icon="atom" size="1.2em" />
+			</span>
+			<Icon icon="paper-plane-tilt" size="1.2em" />
+		</button>
+		<div class="form-message" id="formMessage"></div>
+	</form>
 </aside>
+
+<script>
+	class ContactForm {
+		private form: HTMLFormElement;
+		private submitBtn: HTMLButtonElement;
+		private btnText: HTMLElement;
+		private btnLoading: HTMLElement;
+		private btnIcon: SVGSVGElement;
+		private messageEl: HTMLElement;
+		private lastSubmissionTime: number = 0;
+		private readonly RATE_LIMIT_MS: number = 30000; // 30 seconds
+
+		constructor() {
+			this.form = document.getElementById('contactForm') as HTMLFormElement;
+			this.submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+			this.btnText = this.submitBtn.querySelector('.btn-text') as HTMLElement;
+			this.btnLoading = this.submitBtn.querySelector('.btn-loading') as HTMLElement;
+			this.btnIcon = this.submitBtn.querySelector('svg') as SVGSVGElement;
+			this.messageEl = document.getElementById('formMessage') as HTMLElement;
+			
+			this.init();
+		}
+
+		init() {
+			this.form.addEventListener('submit', this.handleSubmit.bind(this));
+		}
+
+		async handleSubmit(e: Event) {
+			e.preventDefault();
+			
+			// Rate limiting check
+			const now = Date.now();
+			if (now - this.lastSubmissionTime < this.RATE_LIMIT_MS) {
+				const remainingTime = Math.ceil((this.RATE_LIMIT_MS - (now - this.lastSubmissionTime)) / 1000);
+				this.showMessage(`Please wait ${remainingTime} seconds before submitting again.`, 'error');
+				return;
+			}
+			
+			const formData = new FormData(this.form);
+			const name = formData.get('name') as string;
+			const email = formData.get('email') as string;
+			const message = formData.get('message') as string;
+
+			// Basic validation
+			if (!name.trim() || !email.trim() || !message.trim()) {
+				this.showMessage('Please fill in all fields.', 'error');
+				return;
+			}
+
+			// Input sanitization
+			const sanitizeInput = (input: string): string => {
+				return input
+					.replace(/[<>]/g, '') // Remove potential HTML tags
+					.trim()
+					.substring(0, 1000); // Limit length
+			};
+
+			const sanitizedName = sanitizeInput(name);
+			const sanitizedEmail = email.trim().toLowerCase();
+			const sanitizedMessage = sanitizeInput(message);
+
+			// Email validation
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(sanitizedEmail)) {
+				this.showMessage('Please enter a valid email address.', 'error');
+				return;
+			}
+
+			// Length validation
+			if (sanitizedName.length < 2 || sanitizedName.length > 50) {
+				this.showMessage('Name must be between 2 and 50 characters.', 'error');
+				return;
+			}
+
+			if (sanitizedMessage.length < 10 || sanitizedMessage.length > 1000) {
+				this.showMessage('Message must be between 10 and 1000 characters.', 'error');
+				return;
+			}
+
+			// reCAPTCHA validation
+			const recaptchaResponse = (window as any).grecaptcha?.getResponse();
+			if (!recaptchaResponse) {
+				this.showMessage('Please complete the reCAPTCHA verification.', 'error');
+				return;
+			}
+
+			this.setLoading(true);
+
+			try {
+				// Create new FormData with sanitized values
+				const sanitizedFormData = new FormData();
+				sanitizedFormData.append('name', sanitizedName);
+				sanitizedFormData.append('email', sanitizedEmail);
+				sanitizedFormData.append('message', sanitizedMessage);
+				sanitizedFormData.append('g-recaptcha-response', recaptchaResponse);
+
+				const response = await fetch(this.form.action, {
+					method: 'POST',
+					body: sanitizedFormData,
+					headers: {
+						'Accept': 'application/json'
+					}
+				});
+
+				if (response.ok) {
+					this.showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
+					this.form.reset();
+					this.lastSubmissionTime = Date.now();
+					// Reset reCAPTCHA
+					(window as any).grecaptcha?.reset();
+				} else {
+					this.showMessage('Something went wrong. Please try again.', 'error');
+					// Reset reCAPTCHA on error too
+					(window as any).grecaptcha?.reset();
+				}
+			} catch (error) {
+				console.error('Form submission error:', error);
+				this.showMessage('Network error. Please check your connection and try again.', 'error');
+			} finally {
+				this.setLoading(false);
+			}
+		}
+
+		setLoading(loading: boolean) {
+			if (loading) {
+				this.submitBtn.disabled = true;
+				this.btnText.style.display = 'none';
+				this.btnLoading.style.display = 'inline-flex';
+				this.btnIcon.style.display = 'none';
+			} else {
+				this.submitBtn.disabled = false;
+				this.btnText.style.display = 'inline';
+				this.btnLoading.style.display = 'none';
+				this.btnIcon.style.display = 'inline-flex';
+			}
+		}
+
+		showMessage(message: string, type: 'success' | 'error') {
+			this.messageEl.textContent = message;
+			this.messageEl.className = `form-message ${type}`;
+			this.messageEl.style.display = 'block';
+
+			// Auto-hide success messages after 5 seconds
+			if (type === 'success') {
+				setTimeout(() => {
+					this.messageEl.style.display = 'none';
+				}, 5000);
+			}
+		}
+	}
+
+	// Initialize the form when the DOM is loaded
+	document.addEventListener('DOMContentLoaded', () => {
+		new ContactForm();
+	});
+</script>
 
 <style>
 	aside {
@@ -30,6 +206,150 @@ import Icon from './Icon.astro';
 		max-width: 15ch;
 	}
 
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		width: 100%;
+		max-width: 30rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	label {
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--gray-300);
+	}
+
+	input,
+	textarea {
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 0.5rem;
+		background-color: var(--gray-999);
+		color: var(--gray-200);
+		font-family: var(--font-body);
+		font-size: var(--text-base);
+		transition: border-color var(--theme-transition);
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: var(--accent-regular);
+		box-shadow: 0 0 0 3px var(--accent-overlay);
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 6rem;
+	}
+
+	.submit-btn {
+		position: relative;
+		display: flex;
+		place-content: center;
+		text-align: center;
+		padding: 0.56em 2em;
+		gap: 0.8em;
+		color: var(--accent-text-over);
+		text-decoration: none;
+		line-height: 1.1;
+		border-radius: 999rem;
+		overflow: hidden;
+		background: var(--gradient-accent-orange);
+		box-shadow: var(--shadow-md);
+		white-space: nowrap;
+		border: none;
+		cursor: pointer;
+		font-family: var(--font-body);
+		font-size: var(--text-base);
+		transition: transform var(--theme-transition);
+	}
+
+	.submit-btn:hover:not(:disabled) {
+		transform: translateY(-2px);
+	}
+
+	.submit-btn:active:not(:disabled) {
+		transform: translateY(0);
+	}
+
+	.submit-btn:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+
+	/* Overlay for hover effects. */
+	.submit-btn::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		transition: background-color var(--theme-transition);
+		mix-blend-mode: overlay;
+	}
+
+	.submit-btn:focus::after,
+	.submit-btn:hover::after {
+		background-color: hsla(var(--gray-999-basis), 0.3);
+	}
+
+	.btn-loading {
+		display: inline-flex;
+		align-items: center;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	.form-message {
+		padding: 0.75rem 1rem;
+		border-radius: 0.5rem;
+		font-size: var(--text-sm);
+		text-align: center;
+		display: none;
+	}
+
+	.form-message.success {
+		background-color: hsla(120, 100%, 50%, 0.1);
+		border: 1px solid hsla(120, 100%, 50%, 0.3);
+		color: #4ade80;
+	}
+
+	.form-message.error {
+		background-color: hsla(0, 100%, 50%, 0.1);
+		border: 1px solid hsla(0, 100%, 50%, 0.3);
+		color: #f87171;
+	}
+
+	/* reCAPTCHA styling */
+	.g-recaptcha {
+		margin: 1rem 0;
+		transform: scale(0.9);
+		transform-origin: left center;
+	}
+
+	@media (min-width: 50em) {
+		.g-recaptcha {
+			transform: scale(1);
+		}
+	}
+
+	@media (min-width: 20em) {
+		.submit-btn {
+			font-size: var(--text-lg);
+		}
+	}
+
 	@media (min-width: 50em) {
 		aside {
 			padding: 7.5rem;
@@ -41,6 +361,15 @@ import Icon from './Icon.astro';
 		h2 {
 			font-size: var(--text-3xl);
 			text-align: left;
+		}
+
+		.contact-form {
+			max-width: 25rem;
+		}
+
+		.submit-btn {
+			padding: 1.125rem 2.5rem;
+			font-size: var(--text-xl);
 		}
 	}
 </style>
