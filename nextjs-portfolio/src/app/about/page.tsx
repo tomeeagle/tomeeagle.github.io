@@ -9,13 +9,11 @@ export default function AboutPage() {
       title="About Me - Tom Eagle"
       description="Learn more about Tom Eagle, a web developer and Shopify specialist based in Bakewell, Derbyshire. Discover my background, skills, and approach to web development."
     >
-      <Hero>
-        <div className="hero-text">
-          <h1 className="hero-title">About Me</h1>
-          <p className="hero-subtitle">
-            Web developer and Shopify specialist passionate about creating exceptional digital experiences.
-          </p>
-        </div>
+      <Hero
+        title="About Me"
+        tagline="Web developer and Shopify specialist passionate about creating exceptional digital experiences."
+        align="start"
+      >
         <div className="hero-image">
           <Image
             src="/assets/portrait.jpg"

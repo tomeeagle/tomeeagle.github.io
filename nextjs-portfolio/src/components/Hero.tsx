@@ -3,18 +3,20 @@
 import { ReactNode } from 'react';
 
 interface HeroProps {
+  title: string;
+  tagline?: string;
+  align?: 'start' | 'center';
   children: ReactNode;
-  className?: string;
 }
 
-export default function Hero({ children, className = '' }: HeroProps) {
+export default function Hero({ align = 'center', tagline, title, children }: HeroProps) {
   return (
-    <section className={`py-16 md:py-24 text-center md:text-left ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="md:grid md:grid-cols-2 md:gap-16 md:items-center">
-          {children}
-        </div>
+    <div className={`hero stack gap-4 ${align}`}>
+      <div className="stack gap-2">
+        <h1 className="title">{title}</h1>
+        {tagline && <p className="tagline">{tagline}</p>}
       </div>
-    </section>
+      {children}
+    </div>
   );
 } 

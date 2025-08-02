@@ -19,9 +19,11 @@ export default function WorkPage() {
             Shopify customization, and modern frontend technologies.
           </p>
           
-          <Grid className="portfolio-grid">
+          <Grid variant="offset">
             {projects.map((project) => (
-              <PortfolioPreview key={project.slug} project={project} />
+              <li key={project.slug}>
+                <PortfolioPreview project={project} />
+              </li>
             ))}
           </Grid>
         </div>

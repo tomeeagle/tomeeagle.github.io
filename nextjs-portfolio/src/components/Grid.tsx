@@ -4,13 +4,15 @@ import { ReactNode } from 'react';
 
 interface GridProps {
   children: ReactNode;
-  className?: string;
+  variant?: 'offset' | 'small';
 }
 
-export default function Grid({ children, className = '' }: GridProps) {
+export default function Grid({ children, variant }: GridProps) {
+  const variantClass = variant === 'offset' ? 'grid-offset' : variant === 'small' ? 'grid-small' : '';
+  
   return (
-    <div className={`grid ${className}`}>
+    <ul className={`grid ${variantClass}`}>
       {children}
-    </div>
+    </ul>
   );
 } 

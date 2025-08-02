@@ -66,7 +66,7 @@ export default function Layout({
         <meta name="google-site-verification" content="L-6gG7xzlfvR57zzJZyZWS-X5MN47YI4VpJeWtmkRg0" />
       </Head>
       
-      <div className="flex flex-col min-h-screen">
+      <div className="stack backgrounds">
         <Nav />
         {children}
         <Footer />
@@ -127,7 +127,7 @@ export default function Layout({
           }
         }
 
-        .flex.flex-col.min-h-screen {
+        .stack.backgrounds {
           min-height: 100vh;
           isolation: isolate;
           background:
@@ -139,7 +139,7 @@ export default function Layout({
           background-blend-mode: overlay, var(--bg-blend-mode), var(--bg-svg-blend-mode), normal, normal;
         }
         @media (forced-colors: active) {
-          .flex.flex-col.min-h-screen {
+          .stack.backgrounds {
             background: none;
             background-blend-mode: none;
             --bg-gradient-size: none;
