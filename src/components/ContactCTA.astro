@@ -3,7 +3,16 @@ import Icon from './Icon.astro';
 ---
 
 <aside id="contact">
-	<h2>Interested in working together?</h2>
+	<div class="stack gap-2">
+		<h2>Interested in working together?</h2>
+		<p class="lead">Share a few details and I will reply within one business day.</p>
+		<p class="alt-contact">
+			Prefer direct contact?
+			<a href="mailto:tomeagleweb@gmail.com">tomeagleweb@gmail.com</a>
+			or
+			<a href="https://www.linkedin.com/in/tom-eagle/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+		</p>
+	</div>
 	<form class="contact-form" action="https://formspree.io/f/xblkagpw" method="POST" id="contactForm">
 		<div class="form-group">
 			<label for="name">Name</label>
@@ -18,14 +27,14 @@ import Icon from './Icon.astro';
 			<textarea id="message" name="message" rows="4" required></textarea>
 		</div>
 		<!-- Formspree handles reCAPTCHA automatically -->
-		<button type="submit" class="submit-btn" id="submitBtn">
+		<button type="submit" class="submit-btn button-pill" id="submitBtn">
 			<span class="btn-text">Send Message</span>
 			<span class="btn-loading" style="display: none;">
 				<Icon icon="atom" size="1.2em" />
 			</span>
 			<Icon icon="paper-plane-tilt" size="1.2em" />
 		</button>
-		<div class="form-message" id="formMessage"></div>
+		<div class="form-message" id="formMessage" aria-live="polite" tabindex="-1"></div>
 	</form>
 </aside>
 
@@ -159,6 +168,7 @@ import Icon from './Icon.astro';
 			this.messageEl.textContent = message;
 			this.messageEl.className = `form-message ${type}`;
 			this.messageEl.style.display = 'block';
+			this.messageEl.focus();
 
 			// Auto-hide success messages after 5 seconds
 			if (type === 'success') {
@@ -203,7 +213,7 @@ import Icon from './Icon.astro';
 	aside {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: stretch;
 		gap: 3rem;
 		border-top: 1px solid var(--gray-800);
 		border-bottom: 1px solid var(--gray-800);
@@ -214,8 +224,20 @@ import Icon from './Icon.astro';
 
 	h2 {
 		font-size: var(--text-xl);
-		text-align: center;
-		max-width: 15ch;
+		text-align: left;
+		max-width: 18ch;
+	}
+
+	.lead {
+		color: var(--gray-300);
+		text-align: left;
+		max-width: 52ch;
+	}
+
+	.alt-contact {
+		color: var(--gray-400);
+		text-align: left;
+		font-size: var(--text-sm);
 	}
 
 	.contact-form {
@@ -241,20 +263,24 @@ import Icon from './Icon.astro';
 	input,
 	textarea {
 		padding: 0.75rem 1rem;
-		border: 1px solid var(--gray-800);
+		border: 1.5px solid var(--gray-600);
 		border-radius: 0.5rem;
-		background-color: var(--gray-999);
-		color: var(--gray-200);
+		background-color: color-mix(in srgb, var(--gray-999) 94%, var(--accent-regular) 6%);
+		color: var(--gray-100);
 		font-family: var(--font-body);
 		font-size: var(--text-base);
-		transition: border-color var(--theme-transition);
+		transition:
+			border-color var(--theme-transition),
+			background-color var(--theme-transition),
+			box-shadow var(--theme-transition);
 	}
 
 	input:focus,
 	textarea:focus {
 		outline: none;
 		border-color: var(--accent-regular);
-		box-shadow: 0 0 0 3px var(--accent-overlay);
+		background-color: var(--gray-999);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-regular) 30%, transparent);
 	}
 
 	textarea {
@@ -263,23 +289,7 @@ import Icon from './Icon.astro';
 	}
 
 	.submit-btn {
-		position: relative;
-		display: flex;
-		place-content: center;
-		text-align: center;
-		padding: 0.56em 2em;
-		gap: 0.8em;
-		color: var(--accent-text-over);
-		text-decoration: none;
-		line-height: 1.1;
-		border-radius: 999rem;
-		overflow: hidden;
-		background: var(--gradient-accent-orange);
-		box-shadow: var(--shadow-md);
-		white-space: nowrap;
-		border: none;
-		cursor: pointer;
-		font-family: var(--font-body);
+		display: inline-flex;
 		font-size: var(--text-base);
 		transition: transform var(--theme-transition);
 	}
@@ -295,21 +305,6 @@ import Icon from './Icon.astro';
 	.submit-btn:disabled {
 		opacity: 0.7;
 		cursor: not-allowed;
-	}
-
-	/* Overlay for hover effects. */
-	.submit-btn::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		transition: background-color var(--theme-transition);
-		mix-blend-mode: overlay;
-	}
-
-	.submit-btn:focus::after,
-	.submit-btn:hover::after {
-		background-color: hsla(var(--gray-999-basis), 0.3);
 	}
 
 	.btn-loading {
@@ -329,6 +324,10 @@ import Icon from './Icon.astro';
 		font-size: var(--text-sm);
 		text-align: center;
 		display: none;
+	}
+
+	.form-message:focus-visible {
+		outline-offset: 3px;
 	}
 
 	.form-message.success {
@@ -354,9 +353,10 @@ import Icon from './Icon.astro';
 	@media (min-width: 50em) {
 		aside {
 			padding: 7.5rem;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: space-between;
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: start;
+			gap: 3rem;
 		}
 
 		h2 {
@@ -364,8 +364,13 @@ import Icon from './Icon.astro';
 			text-align: left;
 		}
 
+		.lead,
+		.alt-contact {
+			text-align: left;
+		}
+
 		.contact-form {
-			max-width: 25rem;
+			max-width: none;
 		}
 
 		.submit-btn {

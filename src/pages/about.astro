@@ -16,15 +16,17 @@ import Hero from '../components/Hero.astro';
                 title="About"
                 tagline="Thanks for stopping by. Read below to learn more about myself and my background."
             >
-                <div class="image-wrapper">
-                    <img
-                        width="1553"
-                        height="873"
-                        src="/assets/sharp-edge.jpg"
-                        alt="Tom Eagle stood on Sharp Edge in the Lake District"
-                    />
-                </div>
-				<figcaption>Winter ascent of Sharp Edge in the Lake District</figcaption>
+                <figure>
+                    <div class="image-wrapper">
+                        <img
+                            width="1553"
+                            height="873"
+                            src="/assets/sharp-edge.jpg"
+                            alt="Tom Eagle stood on Sharp Edge in the Lake District"
+                        />
+                    </div>
+				    <figcaption>Winter ascent of Sharp Edge in the Lake District</figcaption>
+                </figure>
             </Hero>
 
             <section>
@@ -50,17 +52,18 @@ import Hero from '../components/Hero.astro';
                         the beautiful Peak District, so I'm never short of
                         places to explore.
                     </p>
-                    <div class="image-wrapper">
-                        <img
-                            loading="lazy"
-                            width="1553"
-                            height="873"
-                            src="/assets/
-				bamford.jpg"
-                            alt="A beautiful vista from Bamford Edge in the Peak District"
-                        />
-                    </div>
-					<figcaption>View over Ladybower reservoir in the Peak District</figcaption>
+                    <figure>
+                        <div class="image-wrapper">
+                            <img
+                                loading="lazy"
+                                width="1553"
+                                height="873"
+                                src="/assets/bamford.jpg"
+                                alt="A beautiful vista from Bamford Edge in the Peak District"
+                            />
+                        </div>
+					    <figcaption>View over Ladybower reservoir in the Peak District</figcaption>
+                    </figure>
                 </div>
             </section>
             <section>
@@ -79,17 +82,18 @@ import Hero from '../components/Hero.astro';
                         <li>React</li>
                         <li>HTML</li>
                     </ul>
-                    <div class="image-wrapper">
-                        <img
-                            loading="lazy"
-                            width="1553"
-                            height="873"
-                            src="/assets/
-					tom_curbar.jpg"
-                            alt="Tom Eagle stood on Sharp Edge in the Lake District"
-                        />
-                    </div>
-					<figcaption>Looking out over the Derwent valley from Curbar Edge in the Peak District</figcaption>
+                    <figure>
+                        <div class="image-wrapper">
+                            <img
+                                loading="lazy"
+                                width="1553"
+                                height="873"
+                                src="/assets/tom_curbar.jpg"
+                                alt="Tom Eagle stood on Sharp Edge in the Lake District"
+                            />
+                        </div>
+					    <figcaption>Looking out over the Derwent valley from Curbar Edge in the Peak District</figcaption>
+                    </figure>
                 </div>
             </section>
         </main>
@@ -112,6 +116,10 @@ import Hero from '../components/Hero.astro';
 		margin-top: 0.5rem;
 		text-align: left;
 		font-size: 0.8rem;
+	}
+
+	figure {
+		margin: 0;
 	}
 
 

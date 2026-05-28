@@ -8,23 +8,26 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
-const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+const projects = (await getCollection('work'))
+	.filter((project) => project.data.img !== '/assets/backgrounds/bg-main-light.svg')
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
 <BaseLayout
 	title="Portfolio & Projects | Tom Eagle - Web Developer & Shopify Specialist"
 	description="Explore my portfolio of web development and Shopify projects. View case studies of custom e-commerce solutions, React applications, and frontend development work."
-	image="/assets/portrait.jpg"
+	image="/assets/profile-portrait-2026.png"
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="My Work"
-				tagline="See my most recent projects below to get an idea of my experience."
+				tagline="A selection of Shopify and frontend delivery across new builds, CRO improvements, and long-term theme support."
 				align="start"
 			/>
+			<p class="work-intro">
+				Each project highlights the challenge, the implementation approach, and the outcomes delivered for ecommerce teams.
+			</p>
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
@@ -38,3 +41,10 @@ const projects = (await getCollection('work')).sort(
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.work-intro {
+		max-width: 65ch;
+		color: var(--gray-300);
+	}
+</style>

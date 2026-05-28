@@ -1,32 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Background circle -->
-  <circle cx="64" cy="64" r="60" fill="url(#gradient)" stroke="url(#strokeGradient)" stroke-width="4"/>
-  
-  <!-- Gradient definitions -->
-  <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7611a6"/>
-      <stop offset="50%" stop-color="#c561f6"/>
-      <stop offset="100%" stop-color="#1c0056"/>
-    </linearGradient>
-    <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ca7879"/>
-      <stop offset="100%" stop-color="#7611a6"/>
-    </linearGradient>
-  </defs>
-  
-  <!-- Stylized code symbol -->
-  <text x="64" y="80" font-family="'Courier New', monospace" font-size="48" font-weight="900" text-anchor="middle" fill="white" stroke="rgba(0,0,0,0.1)" stroke-width="1">&lt;/&gt;</text>
+  <!-- Letter E in organic Astro style -->
+  <path d="M30 35c0-2.8 2.2-5 5-5h58c2.8 0 5 2.2 5 5v8c0 2.8-2.2 5-5 5H45v12h38c2.8 0 5 2.2 5 5v6c0 2.8-2.2 5-5 5H45v12h48c2.8 0 5 2.2 5 5v8c0 2.8-2.2 5-5 5H35c-2.8 0-5-2.2-5-5V35z" fill="white"/>
   
   <!-- Dark mode support -->
   <style>
     @media (prefers-color-scheme: dark) {
-      circle { fill: url(#gradient); }
-      text { fill: #ffffff; stroke: rgba(255,255,255,0.1); }
+      path { fill: #ffffff; }
     }
     @media (prefers-color-scheme: light) {
-      circle { fill: url(#gradient); }
-      text { fill: #ffffff; stroke: rgba(0,0,0,0.1); }
+      path { fill: #000000; }
     }
   </style>
 </svg>

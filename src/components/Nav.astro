@@ -8,6 +8,7 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Work', href: '/work/' },
 	{ label: 'About', href: '/about/' },
+	{ label: 'Contact', href: '/#contact' },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -39,7 +40,7 @@ const isCurrentPage = (href: string) => {
 		</a>
 		<menu-button>
 			<template>
-				<button class="menu-button" aria-expanded="false">
+				<button class="menu-button" id="menu-toggle" aria-expanded="false" aria-controls="menu-content">
 					<span class="sr-only">Menu</span>
 					<Icon icon="list" />
 				</button>
@@ -125,8 +126,33 @@ const isCurrentPage = (href: string) => {
 				menu.hidden = !expand;
 			};
 
+			const closeMenu = (focusToggle = false) => {
+				if (btn.hidden) return;
+				setExpanded(false);
+				if (focusToggle) btn.focus();
+			};
+
 			// Toggle menu visibility when the menu button is clicked.
 			btn.addEventListener('click', () => setExpanded(menu.hidden));
+
+			// Keyboard support: close menu with Escape.
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') closeMenu(true);
+			});
+
+			// Close menu when clicking outside on small screens.
+			document.addEventListener('click', (event) => {
+				if (btn.hidden || menu.hidden) return;
+				const target = event.target as Node;
+				if (!this.contains(target) && !menu.contains(target)) {
+					closeMenu(false);
+				}
+			});
+
+			// Close menu when a menu link is selected on mobile.
+			menu.querySelectorAll('a').forEach((link) => {
+				link.addEventListener('click', () => closeMenu(false));
+			});
 
 			// Hide menu button for large screens.
 			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
@@ -144,17 +170,22 @@ const isCurrentPage = (href: string) => {
 <style>
 	nav {
 		z-index: 9999;
-		position: relative;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
 		font-family: var(--font-brand);
 		font-weight: 500;
-		margin-bottom: 3.5rem;
+		backdrop-filter: blur(10px);
+		background: color-mix(in srgb, var(--gray-999) 82%, transparent);
+		border-bottom: 1px solid var(--gray-800);
 	}
 
 	.menu-header {
 		display: flex;
 		justify-content: space-between;
 		gap: 0.5rem;
-		padding: 1.5rem;
+		padding: 1rem 1.5rem;
 	}
 
 	.site-title {
@@ -170,12 +201,13 @@ const isCurrentPage = (href: string) => {
 		position: relative;
 		display: flex;
 		border: 0;
-		border-radius: 999rem;
+		border-radius: 0.75rem;
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
-		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-		box-shadow: var(--shadow-md);
+		background: var(--gray-999);
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-800);
 	}
 
 	.menu-button[aria-expanded='true'] {
@@ -188,13 +220,12 @@ const isCurrentPage = (href: string) => {
 		display: none;
 	}
 
+	.menu-button:focus-visible {
+		outline-offset: 3px;
+	}
+
 	.menu-button::before {
-		position: absolute;
-		inset: -1px;
-		content: '';
-		background: var(--gradient-stroke);
-		border-radius: 999rem;
-		z-index: -1;
+		content: none;
 	}
 
 	.menu-content {
@@ -211,8 +242,8 @@ const isCurrentPage = (href: string) => {
 		font-size: var(--text-md);
 		line-height: 1.2;
 		list-style: none;
-		padding: 2rem;
-		background-color: var(--gray-999);
+		padding: 1.5rem;
+		background: color-mix(in srgb, var(--gray-999) 88%, transparent);
 		border-bottom: 1px solid var(--gray-800);
 	}
 
@@ -224,6 +255,11 @@ const isCurrentPage = (href: string) => {
 
 	.link[aria-current] {
 		color: var(--gray-0);
+	}
+
+	.link:focus-visible,
+	.social:focus-visible {
+		border-radius: 0.5rem;
 	}
 
 	.menu-footer {
@@ -256,6 +292,11 @@ const isCurrentPage = (href: string) => {
 
 	.social:hover,
 	.social:focus {
+		color: var(--accent-regular);
+	}
+
+	:global(.theme-dark) .social:hover,
+	:global(.theme-dark) .social:focus {
 		color: var(--accent-text-over);
 	}
 
@@ -270,7 +311,7 @@ const isCurrentPage = (href: string) => {
 			display: grid;
 			grid-template-columns: 1fr auto 1fr;
 			align-items: center;
-			padding: 2.5rem 5rem;
+			padding: 1rem 3rem;
 			gap: 1rem;
 		}
 
@@ -290,25 +331,20 @@ const isCurrentPage = (href: string) => {
 			position: relative;
 			flex-direction: row;
 			font-size: var(--text-sm);
-			border-radius: 999rem;
-			border: 0;
-			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-			box-shadow: var(--shadow-md);
+			border-radius: 0.85rem;
+			border: 1px solid var(--gray-800);
+			padding: 0.4rem;
+			background: color-mix(in srgb, var(--gray-999) 86%, transparent);
+			box-shadow: var(--shadow-sm);
 		}
 
 		.nav-items::before {
-			position: absolute;
-			inset: -1px;
-			content: '';
-			background: var(--gradient-stroke);
-			border-radius: 999rem;
-			z-index: -1;
+			content: none;
 		}
 
 		.link {
-			padding: 0.5rem 1rem;
-			border-radius: 999rem;
+			padding: 0.5rem 0.85rem;
+			border-radius: 0.6rem;
 			transition:
 				color var(--theme-transition),
 				background-color var(--theme-transition);
@@ -322,7 +358,7 @@ const isCurrentPage = (href: string) => {
 
 		.link[aria-current='page'] {
 			color: var(--accent-text-over);
-			background-color: var(--accent-regular);
+			background: linear-gradient(150deg, var(--accent-light), var(--accent-regular));
 		}
 
 		.menu-footer {

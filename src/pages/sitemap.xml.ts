@@ -3,7 +3,9 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
   // Get all work projects
-  const projects = await getCollection('work');
+  const projects = (await getCollection('work')).filter(
+    (project) => project.data.img !== '/assets/backgrounds/bg-main-light.svg'
+  );
 
   // Define all static pages
   const staticPages = [

@@ -71,6 +71,11 @@
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+	--radius-pill: 999rem;
+	--radius-card: 1rem;
+	--section-gap-lg: 9rem;
+	--focus-ring-color: var(--accent-regular);
+	--focus-ring-shadow: 0 0 0 3px var(--accent-overlay);
 }
 
 :root.theme-dark {
@@ -130,7 +135,7 @@ body {
 	color: var(--gray-200);
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 *,
@@ -149,6 +154,11 @@ a {
 	color: var(--link-color);
 }
 
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+	outline: 2px solid var(--focus-ring-color);
+	outline-offset: 2px;
+}
+
 h1,
 h2,
 h3,
@@ -161,11 +171,11 @@ h5 {
 }
 
 h1 {
-	font-size: var(--text-5xl);
+	font-size: clamp(2.3rem, 6.5vw, 4rem);
 }
 
 h2 {
-	font-size: var(--text-4xl);
+	font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
 h3 {
@@ -254,6 +264,44 @@ h5 {
 	gap: 12rem;
 }
 
+.button-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0.56em 2em;
+	gap: 0.8em;
+	color: var(--gray-0);
+	text-decoration: none;
+	line-height: 1.1;
+	border-radius: 0.9rem;
+	background: color-mix(in srgb, var(--gray-999) 92%, var(--accent-regular) 8%);
+	border: 1px solid color-mix(in srgb, var(--accent-regular) 40%, var(--gray-700));
+	box-shadow: var(--shadow-sm);
+	white-space: nowrap;
+	cursor: pointer;
+	font-family: var(--font-body);
+	font-weight: 600;
+	transition:
+		transform var(--theme-transition),
+		background-color var(--theme-transition),
+		border-color var(--theme-transition),
+		color var(--theme-transition),
+		outline-color var(--theme-transition),
+		box-shadow var(--theme-transition);
+}
+
+.button-pill:hover {
+	transform: translateY(-1px);
+	background: color-mix(in srgb, var(--gray-999) 85%, var(--accent-regular) 15%);
+	border-color: color-mix(in srgb, var(--accent-regular) 65%, var(--gray-700));
+	box-shadow: var(--shadow-md);
+}
+
+.button-pill:focus-visible {
+	box-shadow: var(--focus-ring-shadow), var(--shadow-sm);
+}
+
 @media (min-width: 50em) {
 	.lg\:gap-2 {
 		gap: 0.5rem;
@@ -278,5 +326,10 @@ h5 {
 	}
 	.lg\:gap-48 {
 		gap: 12rem;
+	}
+
+	.button-pill {
+		padding: 1.125rem 2.5rem;
+		font-size: var(--text-xl);
 	}
 }

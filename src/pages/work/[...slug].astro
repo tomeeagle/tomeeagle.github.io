@@ -18,7 +18,9 @@ interface Props {
 // Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
 // https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-    const work = await getCollection('work');
+    const work = (await getCollection('work')).filter(
+        (entry) => entry.data.img !== '/assets/backgrounds/bg-main-light.svg'
+    );
     return work.map((entry) => ({
         params: { slug: entry.id },
         props: { entry }
@@ -46,13 +48,15 @@ const { Content } = await render(entry);
                             <div class="tags">
                                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
                             </div>
-                            <div>
+                            <div class="summary">
                                 <p class="description">
                                     {entry.data.description}
                                 </p>
-                                <CallToAction href={entry.data.url}
-                                    >View the live site</CallToAction
-                                >
+                                {entry.data.url && (
+                                    <CallToAction href={entry.data.url}
+                                        >View the live site</CallToAction
+                                    >
+                                )}
                             </div>
                         </div>
                     </Hero>
@@ -91,26 +95,29 @@ const { Content } = await render(entry);
     }
 
     .details {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         padding: 0.5rem;
-        gap: 1.5rem;
-        justify-content: space-around;
-        align-items: center;
+        gap: 1rem;
+        align-items: start;
     }
 
     .tags {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+        justify-content: flex-start;
+        gap: 0.4rem;
     }
 
     .description {
-        font-size: var(--text-lg);
+        font-size: var(--text-md);
         max-width: 54ch;
         margin-bottom: 1rem;
+        color: var(--gray-300);
+    }
+
+    .summary {
+        max-width: 54ch;
     }
 
     .content {
@@ -167,8 +174,18 @@ const { Content } = await render(entry);
         }
 
         .details {
-            flex-direction: row;
-            gap: 2.5rem;
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.7fr);
+            gap: 1.5rem 2.25rem;
+            align-items: start;
+        }
+
+        .summary {
+            justify-self: end;
+        }
+
+        .summary :global(.button-pill) {
+            width: 100%;
+            justify-content: center;
         }
 
         .content :global(blockquote) {

@@ -18,6 +18,7 @@ import Skills from '../components/Skills.astro';
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection('work'))
+	.filter((project) => project.data.img !== '/assets/backgrounds/bg-main-light.svg')
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
 	.slice(0, 4);
 
@@ -28,47 +29,59 @@ const projects = (await getCollection('work'))
 <BaseLayout 
 	title="Tom Eagle: Web Developer & Shopify Specialist | Bakewell, Derbyshire"
 	description="Web developer and Shopify specialist based in Bakewell, Derbyshire. Specializing in frontend development, React, and custom Shopify solutions. View my portfolio of work."
-	image="/assets/portrait.jpg"
+	image="/assets/profile-portrait-2026.png"
 >
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
+	<div class="stack gap-10 lg:gap-15">
+		<div class="wrapper stack gap-8">
 			<header class="hero">
-				<Hero
-					title="Hello, my name is Tom Eagle"
-					tagline="I am a Web Developer who is currently based in Bakewell, Derbyshire."
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Frontend</Pill>
-						<Pill><Icon icon="storefront" size="1.33em" /> Shopify</Pill>
-						<Pill><Icon icon="atom" size="1.33em" /> React</Pill>
-						<!-- <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill> -->
-						<!-- <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill> -->
-					</div>
-				</Hero>
+				<div class="hero-copy">
+					<Hero
+						title="Shopify and frontend development for high-growth ecommerce brands"
+						tagline="I help ecommerce teams improve conversion and ship faster with reliable Shopify theme delivery."
+						align="start"
+					>
+						<div class="roles">
+							<Pill><Icon icon="code" size="1.1em" /> Frontend</Pill>
+							<Pill><Icon icon="storefront" size="1.1em" /> Shopify</Pill>
+							<Pill><Icon icon="atom" size="1.1em" /> React</Pill>
+						</div>
+						<div class="hero-cta">
+							<CallToAction href="#contact">Start a Project<Icon icon="mailbox" /></CallToAction>
+							<a class="ghost-btn" href="/work/">See Case Studies</a>
+						</div>
+						<p class="proof-line">40+ Shopify storefront deliveries across beauty, lifestyle, and retail.</p>
+					</Hero>
+				</div>
 
-				<div class="image-wrapper">
-					<img
-					alt="Professional portrait of Tom Eagle"
-					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
-				/>
+				<div class="hero-media">
+					<div class="image-wrapper">
+						<img
+						alt="Professional portrait of Tom Eagle"
+						width="480"
+						height="620"
+						src="/assets/profile-portrait-2026.png"
+					/>
+					</div>
+					<div class="stats">
+						<article><strong>40+</strong><span>Storefront projects</span></article>
+						<article><strong>7+</strong><span>Years in frontend delivery</span></article>
+						<article><strong>24h</strong><span>Typical first response</span></article>
+					</div>
 				</div>
 			</header>
 
 			<Skills />
 		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+		<main class="wrapper stack gap-10 lg:gap-15">
+			<section class="section">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p class="flex"><CallToAction href="#contact">Get In Touchin <Icon icon="mailbox" /></CallToAction></p>
+					<h2>Selected Work</h2>
+					<p>Recent Shopify builds and optimization projects focused on performance, UX and conversion.</p>
 				</header>
 
-				<div class="gallery">
-					<Grid variant="offset">
+				<div class="gallery panel">
+					<Grid>
 						{
 							projects.map((project) => (
 								<li>
@@ -89,146 +102,154 @@ const projects = (await getCollection('work'))
 	.hero {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-	.roles {
-		display: none;
+		gap: 2.5rem;
+		padding: 1.75rem;
+		background: color-mix(in srgb, var(--gray-999) 88%, transparent);
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		box-shadow: var(--shadow-sm);
 	}
 
-	.hero .image-wrapper {
-		aspect-ratio: 1;
+	.hero-copy {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.roles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-top: 0.25rem;
+	}
+
+	.hero-cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.3rem;
+	}
+
+	.hero-cta :global(.button-pill),
+	.ghost-btn {
+		font-size: var(--text-md);
+		padding: 0.8rem 1.15rem;
+	}
+
+	.proof-line {
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+		margin-top: 0.4rem;
+	}
+
+	.ghost-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.7rem 1.1rem;
+		border-radius: 0.9rem;
+		border: 1px solid var(--gray-800);
+		background: color-mix(in srgb, var(--gray-999) 94%, transparent);
+		color: var(--gray-100);
+		text-decoration: none;
+	}
+
+	.hero-media {
+		display: grid;
+		gap: 0.85rem;
+	}
+
+	.hero-media .image-wrapper {
+		aspect-ratio: 1.08;
 		width: 100%;
-		max-width: 20rem;
+		max-width: 18rem;
+		margin-top: 0;
 	}
 
 	.hero img {
 		object-fit: cover;
-		border-radius: 1.5rem;
+		top: 58%;
+		border-radius: 1rem;
 		box-shadow: var(--shadow-md);
+	}
+
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.55rem;
+	}
+
+	.stats article {
+		display: grid;
+		gap: 0.2rem;
+		padding: 0.6rem;
+		border-radius: 0.7rem;
+		background: color-mix(in srgb, var(--gray-999) 94%, transparent);
+		border: 1px solid var(--gray-800);
+	}
+
+	.stats strong {
+		font-size: var(--text-lg);
+		color: var(--gray-0);
+		line-height: 1;
+	}
+
+	.stats span {
+		font-size: 0.72rem;
+		color: var(--gray-400);
+	}
+
+	.hero :global(.title) {
+		font-size: clamp(1.65rem, 4.2vw, 2.45rem);
+		max-width: 24ch;
 	}
 
 	@media (min-width: 50em) {
 		.hero {
 			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
+			grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+			align-items: center;
+			padding: 2.4rem;
+			border-radius: 1.5rem;
+			gap: 3rem;
 		}
 
 		.hero img {
 			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
+			border-radius: 1.2rem;
 			object-fit: cover;
 		}
-	}
 
-	/* ====================================================== */
+		.hero :global(.title) {
+			font-size: clamp(2rem, 3.2vw, 2.85rem);
+		}
+	}
 
 	.section {
 		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
+		gap: 1.2rem;
 	}
 
 	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
+		max-width: 60ch;
 		color: var(--gray-300);
 	}
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
+	.section-header h2 {
+		font-size: clamp(1.5rem, 3vw, 2.4rem);
 	}
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
+	.panel {
+		padding: 0.5rem;
+		background: color-mix(in srgb, var(--gray-999) 88%, transparent);
 		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
+		border-radius: 1rem;
 		box-shadow: var(--shadow-sm);
 	}
 
 	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
+		.panel {
+			padding: 0.75rem;
+			border-radius: 1.25rem;
 		}
 	}
 </style>
