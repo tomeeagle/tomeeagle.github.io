@@ -11,33 +11,62 @@ interface Props {
 const {
 	title = 'Tom Eagle: Web Developer & Shopify Specialist',
 	description = 'Web developer and Shopify specialist based in Bakewell, Derbyshire. Specializing in frontend development, React, and custom Shopify solutions.',
-	image = '/assets/portrait.jpg',
+	image = '/assets/profile-portrait-2026.png',
 	url = Astro.url.href,
 } = Astro.props;
 
-// Generate structured data for better SEO
-const structuredData = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	"name": "Tom Eagle",
-	"jobTitle": "Web Developer",
-	"description": "Web developer and Shopify specialist based in Bakewell, Derbyshire",
-	"url": "https://tomeeagle.github.io",
-	"sameAs": [
-		"https://github.com/tomeeagle",
-		"https://www.linkedin.com/in/tom-eagle/"
+const siteUrl = 'https://tomeeagle.github.io';
+const siteName = 'Tom Eagle Portfolio';
+
+// Generate structured data for better SEO coverage.
+const structuredDataGraph = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Person',
+			'@id': `${siteUrl}/#person`,
+			name: 'Tom Eagle',
+			jobTitle: 'Shopify and Frontend Developer',
+			description: 'Web developer and Shopify specialist based in Bakewell, Derbyshire',
+			url: siteUrl,
+			sameAs: ['https://github.com/tomeeagle', 'https://www.linkedin.com/in/tom-eagle/'],
+			knowsAbout: ['Web Development', 'Shopify', 'React', 'Frontend Development', 'JavaScript'],
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality: 'Bakewell',
+				addressRegion: 'Derbyshire',
+				addressCountry: 'GB',
+			},
+		},
+		{
+			'@type': 'WebSite',
+			'@id': `${siteUrl}/#website`,
+			url: siteUrl,
+			name: siteName,
+			description,
+			inLanguage: 'en-GB',
+			publisher: { '@id': `${siteUrl}/#person` },
+		},
+		{
+			'@type': 'ProfessionalService',
+			'@id': `${siteUrl}/#service`,
+			name: 'Tom Eagle Web Development',
+			url: siteUrl,
+			description:
+				'Shopify theme development, ecommerce UX improvements, and frontend delivery support for growth-focused brands.',
+			areaServed: 'United Kingdom',
+			founder: { '@id': `${siteUrl}/#person` },
+			serviceType: [
+				'Shopify theme development',
+				'Frontend development',
+				'Ecommerce UX optimization',
+				'Performance and accessibility support',
+			],
+		},
 	],
-	"knowsAbout": ["Web Development", "Shopify", "React", "Frontend Development", "JavaScript"],
-	"address": {
-		"@type": "PostalAddress",
-		"addressLocality": "Bakewell",
-		"addressRegion": "Derbyshire",
-		"addressCountry": "GB"
-	}
 } as const;
 
-// Safely serialize structured data
-const structuredDataJson = JSON.stringify(structuredData);
+const structuredDataJson = JSON.stringify(structuredDataGraph);
 ---
 
 <meta charset="UTF-8" />
@@ -48,7 +77,6 @@ const structuredDataJson = JSON.stringify(structuredData);
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="keywords" content="web developer, shopify developer, frontend developer, react developer, bakewell, derbyshire" />
 <meta name="author" content="Tom Eagle" />
 
 <!-- Open Graph / Facebook -->
@@ -57,8 +85,6 @@ const structuredDataJson = JSON.stringify(structuredData);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="Tom Eagle Portfolio" />
 <meta property="og:locale" content="en_GB" />
 

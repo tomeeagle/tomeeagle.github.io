@@ -55,6 +55,8 @@ const { data, id } = Astro.props.project;
 		padding: 0.2rem;
 		border-bottom: 1px solid color-mix(in srgb, var(--gray-700) 55%, transparent);
 		background: color-mix(in srgb, var(--gray-999) 92%, var(--gray-900) 8%);
+		overflow: hidden;
+		border-radius: 0.75rem;
 	}
 
 	.card-meta {
@@ -92,7 +94,14 @@ const { data, id } = Astro.props.project;
 		display: block;
 		object-fit: cover;
 		border: 1px solid color-mix(in srgb, var(--gray-700) 45%, transparent);
-		border-radius: 0.65rem;
+		border-radius: 0.5rem;
+		transform: rotate(-3.25deg) scale(1.14);
+		transform-origin: center;
+		transition: transform var(--theme-transition);
+	}
+
+	.card:hover img {
+		transform: rotate(-4deg) scale(1.18);
 	}
 
 	@media (min-width: 50em) {

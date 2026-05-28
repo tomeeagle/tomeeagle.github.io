@@ -2,6 +2,9 @@
 title: Posh Totty
 publishDate: 2025-06-02 00:00:00
 img: /assets/poshtotty-1.jpg
+gallery:
+  - /assets/poshtotty-1.jpg
+  - /assets/poshtotty-2.jpg
 img_alt: Screenshot of frontpage of posh totty website
 url: https://www.poshtottydesigns.com/
 description: |
@@ -11,14 +14,24 @@ tags:
   - Custom JavaScript
 ---
 
-## Posh Totty Shopify Store Build
+## Shopify Store Build
 
-I partnered with an e-commerce agency to launch a new Shopify store for this premium jeweler, the original creators of hand-stamped personalized jewelry.  These meaningful keepsakes are handmade with love in Brighton.
+I partnered with an ecommerce agency to launch this Shopify storefront and support the visual quality expected from a premium jewellery brand.
 
-![Screenshot of website header](../../../public/assets/poshtotty-2.jpg)
+### Challenge
+Translate premium brand direction into a performant Shopify theme while preserving clear navigation and merchandising flexibility.
 
-#### Project details
+### Approach
+- Implemented custom sections for storytelling, merchandising, and campaign placement.
+- Customized theme templates and styling to match final design intent.
+- Built a custom animated header interaction that balanced visual polish with usability.
 
-- Custom sections
-- Theme customisation
-- Custom header with animation
+### Outcome
+The new storefront delivered a stronger first impression and gave the team reusable building blocks for future campaigns and product drops.
+
+### Stack
+Shopify Liquid, JavaScript, custom section development, animated header implementation.
+
+### Related links
+- [Browse all Shopify work](/work/)
+- [Discuss your next storefront project](/#contact)

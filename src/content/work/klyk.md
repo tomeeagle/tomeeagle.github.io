@@ -16,12 +16,23 @@ tags:
 
 ## Custom section builds
 
-> Including carousels, infographics and more.
+As a freelance developer, I worked with an agency partner to support this Shopify reskin and improve delivery speed across custom section builds, including carousels and infographics.
 
-As a freelance web developer, I collaborated with a client agency to rebrand Klyk's Shopify store. The project involved creating a clean and vibrant design that was both visually appealing and user-friendly. I focused on delivering a strong user experience (UX) throughout the design process, resulting in a site that is a pleasure to navigate.
+### Challenge
+The team needed to roll out a significant storefront reskin while keeping custom section development and QA moving quickly.
 
-#### Project details
+### Approach
+- Customized the Impact theme to match updated Figma designs.
+- Built and modified reusable Shopify sections for campaign modules, infographics, and content blocks.
+- Delivered targeted JavaScript enhancements and bug fixes during rollout.
+- Supported Trustpilot integration updates across relevant storefront areas.
 
-- Customising the Impact theme to match Figma design
-- Modifying and creating new theme sections to meet the brief
-- Custom JavaScript
+### Outcome
+The reskin shipped with cleaner component consistency and a more maintainable set of reusable sections for ongoing marketing updates.
+
+### Stack
+Shopify Liquid, JavaScript, Impact theme customization, Trustpilot integration.
+
+### Related links
+- [Explore more case studies](/work/)
+- [Need Shopify delivery support? Contact me](/#contact)

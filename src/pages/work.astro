@@ -31,8 +31,13 @@ const projects = (await getCollection('work'))
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
-						<li>
+						<li class="listing-item">
 							<PortfolioPreview project={project} />
+							<p class="engagement">
+								<span class:list={['badge', { direct: project.id === 'getdopa' }]}>
+									{project.id === 'getdopa' ? 'Direct with merchant' : 'Contracted via agency'}
+								</span>
+							</p>
 						</li>
 					))
 				}
@@ -46,5 +51,30 @@ const projects = (await getCollection('work'))
 	.work-intro {
 		max-width: 65ch;
 		color: var(--gray-300);
+	}
+
+	.listing-item {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.engagement {
+		margin: 0;
+	}
+
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.3rem 0.6rem;
+		border-radius: 0.5rem;
+		font-size: var(--text-sm);
+		color: var(--gray-200);
+		border: 1px solid var(--gray-700);
+		background: color-mix(in srgb, var(--gray-999) 92%, transparent);
+	}
+
+	.badge.direct {
+		border-color: color-mix(in srgb, var(--accent-regular) 55%, var(--gray-700));
+		background: color-mix(in srgb, var(--gray-999) 88%, var(--accent-regular) 12%);
 	}
 </style>

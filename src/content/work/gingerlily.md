@@ -2,6 +2,9 @@
 title: Gingerlily
 publishDate: 2025-03-02 00:00:00
 img: /assets/gingerlily-1.jpg
+gallery:
+  - /assets/gingerlily-1.jpg
+  - /assets/gingerlily-2.jpg
 img_alt: Iridescent ripples of a bright blue and pink liquid
 url: https://gingerlily.co.uk/
 description: |
@@ -11,15 +14,24 @@ tags:
   - Custom JavaScript
 ---
 
-## Gingerlily Shopify Store Build
+## Shopify Store Build
 
-I partnered with an agency to launch Gingerlily's new Shopify store, showcasing their luxurious silk bedding and homewares.  Established in 2004, Gingerlily uses premium mulberry silk to create exquisite, hypoallergenic bed linen, cushions, throws, and nightwear, from simple solids to elaborate prints.  Silk-filled pillows offer ultimate comfort. Gingerlily: luxurious silk delights.
+I partnered with an agency to launch this Shopify storefront for a luxury silk bedding and homewares range.
 
-![This is an image](../../../public/assets/gingerlily-2.jpg)
+### Challenge
+Build a premium DTC storefront that preserved brand elegance while improving product discoverability and search usability.
 
+### Approach
+- Implemented custom sections tailored for campaign storytelling and merchandising.
+- Customized the Shopify theme to align layout, typography, and interaction details with design direction.
+- Built an improved custom search UI to make product discovery quicker across large collections.
 
-#### Project details
+### Outcome
+The launch provided a more polished shopping experience and a flexible section system the team could reuse for seasonal content updates.
 
-- Custom sections
-- Theme customisation
-- Custom search UI
+### Stack
+Shopify Liquid, JavaScript, theme section architecture, custom search UI.
+
+### Related links
+- [View all Shopify projects](/work/)
+- [Get in touch about a similar build](/#contact)

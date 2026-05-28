@@ -11,6 +11,7 @@ export const collections = {
 			publishDate: z.coerce.date(),
 			tags: z.array(z.string()),
 			img: z.string(),
+			gallery: z.array(z.string()).optional(),
 			img_alt: z.string().optional(),
 			url: z.string().optional(),
 		}),
