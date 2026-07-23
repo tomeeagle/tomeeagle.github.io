@@ -1,4 +1,5 @@
 ---
+
 title: Klyk
 publishDate: 2024-03-12 00:00:00
 img: /assets/hello-klyk-1.jpg
@@ -7,10 +8,9 @@ url: https://helloklyk.com/
 description: |
   Freelance contract to assist in rolling out this reskin of a Shopify store for this tech-recycling company
 tags:
-  - Component builds
-  - Dev
+  - Section build
   - Custom JavaScript
-  - Bugfixing
+  - Bug fixing
   - Trustpilot integration
 ---
 

@@ -1,4 +1,5 @@
 ---
+
 title: Naomi Whittel
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,17 +8,17 @@ url: https://naomiw.com/
 description: |
   Shopify theme work for Naomi Whittel, including custom section development, search-related UX updates, and regular issue resolution.
 tags:
+  - New build
   - Shopify Liquid
   - Search UX
   - Theme Development
-  - Bugfixing
-  - New build
+  - Bug fixing
 ---
 
 ## Naomi Whittel Shopify Store Enhancements
 
 ### Challenge
-Naomi Whittel required a new storefront build with campaign-ready PDP storytelling, reusable content systems, and consistent design behavior across templates.
+Naomi Whittel required a new storefront build with campaign-ready PDP storytelling, reusable content systems, and consistent UI behavior across templates.
 
 ### Approach
 - Implemented custom sections for ingredients, comparison storytelling, reviews, and video testimonials.

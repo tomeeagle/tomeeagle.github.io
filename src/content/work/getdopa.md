@@ -1,4 +1,5 @@
 ---
+
 title: Get Dopa
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,11 +8,11 @@ url: https://www.getdopa.com/
 description: |
   Shopify theme development for Get Dopa, covering custom sections, component/snippet updates, and quality-focused frontend improvements.
 tags:
+  - Section build
   - Shopify Liquid
   - Custom JavaScript
   - Theme Development
-  - Bugfixing
-  - Major rebuild
+  - Bug fixing
 ---
 
 ## Get Dopa Shopify Theme Work

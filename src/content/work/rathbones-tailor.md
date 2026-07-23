@@ -1,4 +1,5 @@
 ---
+
 title: Rathbones Tailor
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,11 +8,11 @@ url: https://rathbonestailor.com/
 description: |
   Shopify feature and optimization work for Rathbones Tailor, including bugfixing and targeted improvements to product and cart journeys.
 tags:
+  - Section refresh
   - Shopify Liquid
   - Conversion UX
   - Product Page
-  - Bugfixing
-  - Iterative enhancement
+  - Bug fixing
 ---
 
 ## Rathbones Tailor Shopify Improvements

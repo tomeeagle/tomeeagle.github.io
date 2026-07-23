@@ -7,11 +7,11 @@ url: https://embassyofbeauty.co.uk/
 description: |
   Shopify development support for Embassy of Beauty, including custom section delivery, snippet-level changes, and frontend QA fixes.
 tags:
+  - Section refresh
   - Shopify Liquid
   - Theme Customization
   - UX Improvements
   - Frontend Development
-  - Iterative enhancement
 ---
 
 ## Embassy of Beauty Shopify Build Support

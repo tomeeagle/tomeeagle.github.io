@@ -10,6 +10,7 @@ url: https://gingerlily.co.uk/
 description: |
   Shopify Site Build
 tags:
+  - New build
   - Shopify Liquid
   - Custom JavaScript
 ---
@@ -23,7 +24,7 @@ Build a premium DTC storefront that preserved brand elegance while improving pro
 
 ### Approach
 - Implemented custom sections tailored for campaign storytelling and merchandising.
-- Customized the Shopify theme to align layout, typography, and interaction details with design direction.
+- Customized the Shopify theme to match Figma layouts, typography, and interaction details.
 - Built an improved custom search UI to make product discovery quicker across large collections.
 
 ### Outcome

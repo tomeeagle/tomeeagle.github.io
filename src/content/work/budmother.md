@@ -7,10 +7,10 @@ url: https://budmother.com/
 description: |
   Shopify theme development for Budmother, focused on custom sections, Liquid customization, and day-to-day storefront refinement.
 tags:
+  - Section build
   - Shopify Liquid
   - Theme Maintenance
   - Frontend Development
-  - Iterative enhancement
   - Custom Sections
 ---
 

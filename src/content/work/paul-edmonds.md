@@ -7,10 +7,10 @@ url: https://pauledmonds.com/
 description: |
   Shopify storefront enhancement work for Paul Edmonds, focused on section development, Liquid customizations, and continual UX refinements.
 tags:
+  - Section build
   - Shopify Liquid
   - Theme Maintenance
   - Frontend Development
-  - Iterative enhancement
   - Custom Sections
 ---
 

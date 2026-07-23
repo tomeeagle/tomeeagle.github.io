@@ -1,4 +1,5 @@
 ---
+
 title: Dr Sebagh
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,11 +8,11 @@ url: https://www.drsebagh.com/
 description: |
   Shopify theme customization and maintenance for Dr Sebagh, including section implementations, Liquid updates, and iterative bugfixing.
 tags:
+  - Section build
   - Shopify Liquid
   - Theme Customization
   - Maintenance
-  - Bugfixing
-  - New build
+  - Bug fixing
 ---
 
 ## Dr Sebagh Shopify Development

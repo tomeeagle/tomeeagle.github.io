@@ -1,4 +1,5 @@
 ---
+
 title: Lifting Equipment Store
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,11 +8,11 @@ url: https://liftingequipmentstore.com/
 description: |
   Shopify development support for Lifting Equipment Store, including custom section creation, snippet updates, and continuous bugfixing.
 tags:
+  - Section build
   - Shopify Liquid
   - Theme Development
   - Custom Sections
-  - Bugfixing
-  - Major rebuild
+  - Bug fixing
 ---
 
 ## Lifting Equipment Store Shopify Work

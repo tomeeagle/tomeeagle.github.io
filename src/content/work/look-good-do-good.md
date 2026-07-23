@@ -1,4 +1,5 @@
 ---
+
 title: Look Good Do Good
 publishDate: 2026-05-28 00:00:00
 img: /assets/backgrounds/bg-main-light.svg
@@ -7,11 +8,11 @@ url: https://broken-society.com/
 description: |
   Shopify storefront enhancement work for Look Good Do Good, focused on section builds, conversion-related updates, and bug fixes.
 tags:
+  - Section build
   - Shopify Liquid
   - Custom Sections
   - Conversion UX
-  - Bugfixing
-  - New build
+  - Bug fixing
 ---
 
 ## Look Good Do Good Storefront Development

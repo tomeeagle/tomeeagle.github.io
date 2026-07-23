@@ -7,9 +7,9 @@ url: https://111skin.com/
 description: |
   New Shopify build for 111SKIN based on the Broadcast theme, with custom sections, Liquid overrides, and performance-focused frontend work.
 tags:
+  - New build
   - Shopify Liquid
   - Broadcast Theme
-  - New build
 ---
 
 ## 111SKIN Broadcast Theme Build

@@ -7,11 +7,11 @@ url: https://www.joelandsonfabrics.com/
 description: |
   Shopify theme development for Joel & Son Fabrics, covering custom sections, snippet/component work, and Liquid template customization.
 tags:
+  - Section refresh
   - Shopify Liquid
   - Theme Development
   - Custom Sections
   - Frontend Development
-  - New build
 ---
 
 ## Joel & Son Fabrics Shopify Work

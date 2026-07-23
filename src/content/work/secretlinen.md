@@ -1,32 +1,43 @@
 ---
 title: Secret Linen Store
-publishDate: 2026-05-28 00:00:00
-img: /assets/backgrounds/bg-main-light.svg
-img_alt: Placeholder graphic for Secret Linen Store case study
+publishDate: 2025-08-01 00:00:00
+img: /assets/secretlinen-1.jpg
+gallery:
+  - /assets/secretlinen-1.jpg
+  - /assets/secretlinen-2.jpg
+  - /assets/secretlinen-3.jpg
+img_alt: Screenshot of the Secret Linen Store Shopify storefront homepage
 url: https://www.secretlinenstore.com/
 description: |
-  Shopify theme implementation work for Secret Linen Store, including section builds, snippet updates, and template customization.
+  Shopify store built from scratch for Secret Linen Store, including a custom multi-item product form, since extended with ongoing section and theme work.
 tags:
+  - New build
   - Shopify Liquid
-  - Theme Customization
+  - Theme Development
   - Custom Sections
   - Frontend Development
-  - Major rebuild
 ---
 
-## Secret Linen Store Shopify Work
+## Shopify Store Build
+
+I built the Secret Linen Store Shopify storefront from scratch, then continued to extend it with new sections, merchandising layouts, and theme refinements as the brand evolved.
 
 ### Challenge
-Secret Linen Store required ongoing Shopify improvements while preserving consistency across merchandising pages, templates, and shared components.
+Launch a full Shopify theme for a premium linen brand with a clear merchandising structure, reusable section architecture, and a product experience that could handle complex bed-linen set building beyond a standard variant picker.
 
 ### Approach
-- Built and iterated custom theme sections for content and merchandising layouts.
-- Extended reusable snippets and shared Liquid components used across multiple templates.
-- Customized templates and supporting storefront behavior for evolving campaign needs.
-- Delivered bug fixes and refinement work throughout release cycles.
+- Built the storefront theme from the ground up from Photoshop comps, including core templates and shared Liquid patterns.
+- Built custom sections for content and merchandising layouts used across homepage, collections, and campaign pages.
+- Built a custom product form for bed linen sets so shoppers can assemble pillowcases, duvet covers, sheets, and more with per-size quantities in one flow.
+- Established reusable snippets and components so later iterations could ship without rebuilding the foundation.
+- Extended the theme after launch with section updates, template customizations, and ongoing QA refinements.
 
 ### Outcome
-The store gained a more maintainable theme setup and a faster cadence for rolling out merchandising and UX updates.
+The brand launched on a purpose-built Shopify theme with a maintainable system for campaigns and merchandising, plus a custom PDP form for complex set-building purchases.
 
 ### Stack
-Shopify Liquid, theme section architecture, reusable snippet systems, iterative frontend delivery.
+Shopify Liquid, custom theme architecture, custom product form UX, section and snippet systems, iterative frontend delivery.
+
+### Related links
+- [Browse all Shopify work](/work/)
+- [Discuss a from-scratch storefront build](/#contact)

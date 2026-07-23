@@ -7,11 +7,11 @@ url: https://www.snowpeak.co.uk/
 description: |
   Shopify theme customization for Snow Peak UK, with a focus on custom sections, QA-led fixes, and ongoing storefront iteration.
 tags:
+  - Section refresh
   - Shopify Liquid
   - Theme Customization
   - Frontend QA
   - Ecommerce
-  - Iterative enhancement
 ---
 
 ## Snow Peak UK Shopify Development

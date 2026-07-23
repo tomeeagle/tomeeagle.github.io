@@ -1,4 +1,5 @@
 ---
+
 title: VitaCoco
 publishDate: 2024-03-12 00:00:00
 img: /assets/vita-coco-1.jpg
@@ -10,9 +11,10 @@ url: https://vitacoco.co.uk/products/coconut-water
 description: |
   Rework of PDP on Shopify store
 tags:
+  - Section refresh
   - Shopify
   - Custom JavaScript
-  - Bugfixing
+  - Bug fixing
 ---
 
 ## Product detail page refresh
@@ -31,7 +33,7 @@ The existing PDP needed a clearer conversion flow, especially for variant select
 The updated PDP improved selection clarity and reduced purchase friction by keeping key decision controls and CTAs easier to access.
 
 ### Stack
-Shopify Liquid, JavaScript, PDP UX optimization, responsive interaction design.
+Shopify Liquid, JavaScript, PDP UX optimization, responsive frontend implementation.
 
 ### Related links
 - [See more ecommerce case studies](/work/)

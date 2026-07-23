@@ -7,11 +7,11 @@ url: https://111skin.com/
 description: |
   Ongoing Shopify theme development and maintenance for 111SKIN, focused on custom sections, Liquid updates, and UI refinements.
 tags:
+  - Section refresh
   - Shopify Liquid
   - Theme Development
   - Custom Sections
   - Maintenance
-  - Iterative enhancement
 ---
 
 ## 111SKIN Shopify Theme Development

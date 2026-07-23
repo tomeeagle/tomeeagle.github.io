@@ -7,11 +7,11 @@ url: https://bbcicecream.eu/
 description: |
   Shopify storefront development for Billionaire Boys Club UK, centered on custom sections, snippet enhancements, and Liquid template updates.
 tags:
+  - Section build
   - Shopify Liquid
   - Ecommerce
   - Theme Development
   - Custom Sections
-  - Iterative enhancement
 ---
 
 ## Billionaire Boys Club UK Storefront Development

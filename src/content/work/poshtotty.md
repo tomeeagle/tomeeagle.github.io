@@ -10,6 +10,7 @@ url: https://www.poshtottydesigns.com/
 description: |
   Shopify Site Build
 tags:
+  - New build
   - Shopify Liquid
   - Custom JavaScript
 ---
@@ -23,7 +24,7 @@ Translate premium brand direction into a performant Shopify theme while preservi
 
 ### Approach
 - Implemented custom sections for storytelling, merchandising, and campaign placement.
-- Customized theme templates and styling to match final design intent.
+- Customized theme templates and styling to match the final Figma files.
 - Built a custom animated header interaction that balanced visual polish with usability.
 
 ### Outcome
